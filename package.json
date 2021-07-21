@@ -1,11 +1,10 @@
 {
-  "name": "03_separation-of-concerns",
+  "name": "03_separation-of-concerns-demo",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "type": "module",
   "scripts": {
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config",
+    "test": "jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config",
     "test:watch": "npm run test -- --watch",
     "start": "node -r dotenv/config server.js",
     "start:watch": "nodemon -r dotenv/config server.js",
@@ -19,20 +18,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/eslint-parser": "^7.14.7",
+    "@babel/eslint-parser": "^7.13.4",
     "@babel/plugin-syntax-class-properties": "^7.12.13",
-    "@types/jest": "^26.0.24",
-    "@types/pg": "^8.6.1",
-    "eslint": "^7.31.0",
-    "jest": "^27.0.6",
-    "nodemon": "^2.0.12",
-    "prettier": "^2.3.2",
-    "supertest": "^6.1.4"
+    "@types/jest": "^26.0.20",
+    "@types/pg": "^7.14.10",
+    "eslint": "^7.20.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
   },
   "dependencies": {
-    "cross-env": "^7.0.3",
-    "dotenv": "^10.0.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "pg": "^8.6.0"
+    "pg": "^8.5.1",
+    "twilio": "^3.57.0"
   }
 }
