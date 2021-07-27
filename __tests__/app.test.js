@@ -43,9 +43,28 @@ describe('03_separation-of-concerns-demo routes', () => {
     const order = await Order.insert({ quantity: 10 });
     
     return request(app)
-    .get('/api/v1/orders')
-    .then((res) => {
-      expect(res.body).toEqual([order]);
+      .get('/api/v1/orders')
+      .then((res) => {
+        expect(res.body).toEqual([order]);
       });
+  });
+
+  it('update a single order', async () => {
+    const order = await Order.insert({
+      quantity: 10 });
+    
+    const res = await request(app)
+      .put(`/api/v1/orders/${order.id}`)
+      .send({ quantity: 2 });
+    expect(res.body).toEqual({ ...order });
+  });
+
+  it('delete a single order', async () => {
+    const order = await Order.insert({
+      quantity: 10 });
+    
+    const res = await request(app)
+      .delete(`/api/v1/orders/${order.id}`);
+    expect(res.body).toEqual({ message: `${order.id} has been deleted` });
   });
 });
