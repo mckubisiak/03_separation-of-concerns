@@ -56,7 +56,7 @@ describe('03_separation-of-concerns-demo routes', () => {
     const res = await request(app)
       .put(`/api/v1/orders/${order.id}`)
       .send({ quantity: 2 });
-    expect(res.body).toEqual({ ...order });
+    expect(res.body).toEqual({ ...order, quantity: 2 });
   });
 
   it('delete a single order', async () => {
